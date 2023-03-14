@@ -11,6 +11,20 @@
   </head>
 
   <body>
+
+    <div class="d-flex flex-row mb-3">
+      <div class="p-2">
+        <%= button_to destroy_client_session_path, class: "btn btn-primary" , method: :delete do %>
+          Logout
+        <% end %>
+      </div>
+      <div class="p-2">
+        <%= link_to edit_client_registration_path, class: "btn btn-primary" do %>
+          Edit Client
+        <% end %> 
+      </div>
+    </div>
+
     <%= yield %>
   </body>
 </html>

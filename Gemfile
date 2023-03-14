@@ -21,6 +21,9 @@ gem "jsbundling-rails"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
 
+# [https://github.com/heartcombo/devise]
+gem "devise", "~> 4.9"
+
 # [https://github.com/faker-ruby/faker]
 gem "faker", "~> 3.1"
 
