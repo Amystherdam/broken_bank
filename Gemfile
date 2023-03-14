@@ -21,17 +21,23 @@ gem "jsbundling-rails"
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+# [https://github.com/faker-ruby/faker]
+gem "faker", "~> 3.1"
 
 group :development, :test do
+  gem "database_cleaner-active_record", "~> 2.1"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "factory_bot_rails", "~> 6.2"
+  gem "rspec-rails", "~> 6.0"
+  gem "shoulda-matchers", "~> 5.3"
 end
 
 group :development do
   gem "web-console"
 end
 
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+
+# Reduces boot times through caching; required in config/boot.rb
+gem "bootsnap", require: false
