@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :clients
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'home', to: 'home#index'
+  post 'home/close-account', to: 'home#close_account'
+  post 'home/new-account', to: 'home#new_account'
+  devise_for :clients, controllers: { registrations: 'registrations' }
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root "home#index"
 end

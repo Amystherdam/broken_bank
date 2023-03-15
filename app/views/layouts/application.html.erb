@@ -18,11 +18,20 @@
           Logout
         <% end %>
       </div>
+
       <div class="p-2">
         <%= link_to edit_client_registration_path, class: "btn btn-primary" do %>
           Edit Client
         <% end %> 
       </div>
+
+      <% unless current_client.bank_accounts.active.first %>
+        <div class="p-2">
+          <%= button_to home_new_account_path, class: "btn btn-primary" do %>
+            New Account
+          <% end %> 
+        </div>
+      <% end %>
     </div>
 
     <%= yield %>
