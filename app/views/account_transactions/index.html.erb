@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Account transactions</h1>
+
+<div id="account_transactions">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Transaction Value</th>
+      <th scope="col">kind</th>
+      <th scope="col">Bank Account</th>
+      <th scope="col">Destination Account</th>
+      <th scope="col">Created At</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @account_transactions.each do |account_transaction| %>
+        <tr>
+    <%= render account_transaction %>
+        <td>
+      <%= link_to "Show", account_transaction %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<%= link_to "New account transaction", new_account_transaction_path %>

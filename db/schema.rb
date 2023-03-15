@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_002324) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_025413) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_transactions", force: :cascade do |t|
+    t.integer "transaction_value", default: 0, null: false
+    t.integer "kind", default: 0, null: false
+    t.string "destination_bank_account"
+    t.bigint "bank_account_id", null: false
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bank_account_id"], name: "index_account_transactions_on_bank_account_id"
+    t.index ["client_id"], name: "index_account_transactions_on_client_id"
+  end
 
   create_table "bank_accounts", force: :cascade do |t|
     t.string "account_number", default: "", null: false
@@ -36,5 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_002324) do
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "account_transactions", "bank_accounts"
+  add_foreign_key "account_transactions", "clients"
   add_foreign_key "bank_accounts", "clients"
 end

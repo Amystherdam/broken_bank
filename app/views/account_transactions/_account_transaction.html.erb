@@ -1,0 +1,22 @@
+<div id="<%= dom_id account_transaction %>">
+  <td>
+    R$ <%= cent_to_real(account_transaction.transaction_value) %>
+  </td>
+
+  <td>
+    <%= account_transaction.kind %>
+  </td>
+
+  <td>
+    <%= account_transaction.bank_account.account_number %>
+  </td>
+
+  <td>
+    <%= account_transaction.destination_bank_account %>
+  </td>
+
+  <td>
+    <%= account_transaction.created_at.strftime("%d/%m/%Y %H:%M") %>
+  </td>
+
+</div>

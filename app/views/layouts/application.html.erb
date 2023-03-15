@@ -25,6 +25,12 @@
         <% end %> 
       </div>
 
+      <div class="p-2">
+        <%= link_to home_path, class: "btn btn-primary" do %>
+          Home
+        <% end %> 
+      </div>
+
       <% unless current_client.bank_accounts.active.first %>
         <div class="p-2">
           <%= button_to home_new_account_path, class: "btn btn-primary" do %>
@@ -32,6 +38,12 @@
           <% end %> 
         </div>
       <% end %>
+
+      <div class="p-2">
+        <%= link_to account_transactions_path, class: "btn btn-primary" do %>
+          Transactions
+        <% end %> 
+      </div>
     </div>
 
     <%= yield %>
