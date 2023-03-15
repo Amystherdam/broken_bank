@@ -4,7 +4,8 @@ RSpec.describe "/account_transactions", type: :request do
   let(:valid_attributes) do
     {
       transaction_value: "1000",
-      kind: :deposit
+      kind: :deposit,
+      password_confirmation: "12345678"
     }
   end
 
@@ -18,7 +19,7 @@ RSpec.describe "/account_transactions", type: :request do
   before do
     client = create(:client)
     bank_account = create(:bank_account, client:)
-    @account_transaction = create(:account_transaction, bank_account:, client:)
+    @account_transaction = create(:account_transaction, bank_account:, client:, password_confirmation: '12345678')
 
     sign_in client
   end
