@@ -18,22 +18,13 @@
 
   <div class="mb-3">
     <%= form.label :kind, class: "form-label" %>
-    <%= form.text_field :kind, class: "form-control" %>
+    <%= form.collection_select :kind, @kinds, :to_s, :to_s,  {}, { class: 'form-select'} %>
   </div>
 
   <div class="mb-3">
     <%= form.label :destination_bank_account, class: "form-label" %>
+    <p>Inform when the transaction is of the transfer kind</p>
     <%= form.text_field :destination_bank_account, class: "form-control" %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :bank_account_id, class: "form-label" %>
-    <%= form.text_field :bank_account_id, class: "form-control" %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label :client_id, class: "form-label" %>
-    <%= form.text_field :client_id, class: "form-control" %>
   </div>
 
   <div>
