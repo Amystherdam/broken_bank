@@ -21,4 +21,13 @@ class TransactionService
       destination_bank_account.save!
     end
   end
+
+  def allow_transaction(account_transaction)  
+    bank_account = BankAccount.find(account_transaction.bank_account_id)
+    if account_transaction.kind != 'deposit'
+      account_transaction.transaction_value <= bank_account.account_balance
+    else
+      true
+    end
+  end
 end

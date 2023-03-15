@@ -5,13 +5,13 @@ RSpec.describe "/account_transactions", type: :request do
     {
       transaction_value: "1000",
       kind: :deposit,
-      password_confirmation: "12345678"
+      password_confirmation: "12345678" 
     }
   end
 
   let(:invalid_attributes) do
     {
-      transaction_value: nil,
+      transaction_value: 0,
       kind: nil
     }
   end
