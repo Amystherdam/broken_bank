@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header">
+    <h3>Extrato Bancário</h3>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Data e Hora</th>
+          <th>Descrição da Transação</th>
+          <th>Valor da Transação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @statement_report.each do |report| %>
+          <tr>
+            <td><%= report.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+            <td><%= report.kind %></td>
+            <td>R$ <%= cent_to_real(report.transaction_value) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-6">
+        <p>Saldo Atual: R$ <%= cent_to_real(@bank_account.account_balance) %></p>
+        <p>Número da Conta Bancária:  <%= @bank_account.account_number %></p>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-end">
+    <button class="btn btn-primary no-print" onclick="window.print()">Imprimir</button>
+  </div>
+</div>

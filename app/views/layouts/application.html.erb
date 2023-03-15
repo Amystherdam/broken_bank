@@ -7,6 +7,8 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag 'styles' %>
+
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
@@ -14,34 +16,40 @@
 
     <div class="d-flex flex-row mb-3">
       <div class="p-2">
-        <%= button_to destroy_client_session_path, class: "btn btn-primary" , method: :delete do %>
+        <%= button_to destroy_client_session_path, class: "btn btn-primary no-print" , method: :delete do %>
           Logout
         <% end %>
       </div>
 
       <div class="p-2">
-        <%= link_to edit_client_registration_path, class: "btn btn-primary" do %>
+        <%= link_to edit_client_registration_path, class: "btn btn-primary no-print" do %>
           Edit Client
         <% end %> 
       </div>
 
       <div class="p-2">
-        <%= link_to home_path, class: "btn btn-primary" do %>
+        <%= link_to home_path, class: "btn btn-primary no-print" do %>
           Home
         <% end %> 
       </div>
 
       <% unless current_client.bank_accounts.active.first %>
         <div class="p-2">
-          <%= button_to home_new_account_path, class: "btn btn-primary" do %>
+          <%= button_to home_new_account_path, class: "btn btn-primary no-print" do %>
             New Account
           <% end %> 
         </div>
       <% end %>
 
       <div class="p-2">
-        <%= link_to account_transactions_path, class: "btn btn-primary" do %>
+        <%= link_to account_transactions_path, class: "btn btn-primary no-print" do %>
           Transactions
+        <% end %> 
+      </div>
+
+      <div class="p-2">
+        <%= link_to statement_path, class: "btn btn-primary no-print" do %>
+          Statements
         <% end %> 
       </div>
     </div>

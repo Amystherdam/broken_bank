@@ -5,7 +5,7 @@ class AccountTransactionsController < ApplicationController
 
   # GET /account_transactions
   def index
-    @account_transactions = AccountTransaction.all
+    @account_transactions = AccountTransaction.where(client_id: current_client.id, bank_account_id: current_client.bank_accounts.active.first.id)
   end
 
   # GET /account_transactions/1
